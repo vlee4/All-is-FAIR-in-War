@@ -3,7 +3,10 @@
   "version": "1.1.2",
   "description": "A Phaser 3 Project Template",
   "main": "src/index.js",
+  "homepage": "https://vlee4.github.io/All-is-Fair-in-War",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "webpack --config webpack/prod.js ",
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
@@ -17,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/photonstorm/phaser3-project-template/issues"
   },
-  "homepage": "https://github.com/photonstorm/phaser3-project-template#readme",
   "devDependencies": {
     "@babel/core": "^7.7.2",
     "@babel/preset-env": "^7.7.1",
@@ -33,6 +35,7 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "gh-pages": "^3.2.3",
     "phaser": "^3.50.0"
   }
 }
