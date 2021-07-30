@@ -4,12 +4,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  entry: "./src/index.js",
   mode: "development",
   devtool: "eval-source-map",
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.css$/,
+        use: [{loader: "style-loader"}, {loader: "css-loader"}]
+      },
+      {
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
@@ -34,7 +39,9 @@ module.exports = {
       WEBGL_RENDERER: JSON.stringify(true)
     }),
     new HtmlWebpackPlugin({
-      template: "./index.html"
+      template: "./index.html",
+      filename: "index.html",
+      inject: "body"
     })
   ]
 };
